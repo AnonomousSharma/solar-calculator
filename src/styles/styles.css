@@ -1,0 +1,168 @@
+/* General Layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f5f8; /* Soft light background */
+  color: #333;
+}
+
+.app {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2eb039;
+  margin-bottom: 30px;
+}
+
+/* Container for calculator and results side by side */
+.calculator-results {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* To make it responsive */
+}
+
+.calculator, .results {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 400px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.calculator h2, .results h2 {
+  font-size: 1.8rem;
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+/* Input Box Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #007BFF;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 15px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Result Box Styling */
+.results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+ul li::before {
+  content: "⚡ ";
+  color: #ff9800;
+  font-size: 1.2rem;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+/* Default (Desktop and larger screens) */
+body {
+  font-size: 16px;
+}
+/* Default (Desktop and larger screens) */
+body {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) { 
+  /* Target tablets and smaller devices */
+  body {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  /* Target large phones and phablets */
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 414px) { 
+  /* Target larger phones (e.g., iPhone 6/7/8 Plus) */
+  body {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 375px) { 
+  /* Target small phones (e.g., iPhone 6, iPhone 7, smaller Android phones) */
+  body {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) { 
+  /* Target very small phones */
+  body {
+    font-size: 11px;
+  }
+}
