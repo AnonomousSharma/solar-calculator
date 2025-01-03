@@ -68,6 +68,7 @@ input {
 input:focus {
   border-color: #007BFF;
 }
+
 button {
   background-color: #007BFF;
   color: white;
@@ -84,14 +85,13 @@ button:hover {
   background-color: #0056b3;
 }
 
-
-
+/* Language Toggle Button Styling */
 .language-toggle-buttons {
   display: flex; /* Aligns buttons horizontally */
-  justify-content: flex-start; /* Align buttons to the left, you can change to 'center' if you want them centered */
+  justify-content: flex-start; /* Align buttons to the left */
   gap: 10px; /* Adds space between the buttons */
   margin-bottom: 20px; /* Adds some space below the buttons */
- 
+  padding-left: 10px; /* Adds space from the left edge */
 }
 
 .language-toggle-buttons button {
@@ -152,25 +152,87 @@ ul li::before {
   text-align: left;
 }
 
-@media screen and (max-width: 300px) {
-  /* Adjust font size for large screens */
+/* Default (Desktop and larger screens) */
+body {
+  font-size: 16px;
+}
+
+/* Mobile Responsiveness for Samsung S24 Ultra (1440px width) */
+@media screen and (max-width: 1440px) {
   body {
-    font-size: 16px; /* You can adjust this as needed */
+    font-size: 16px; /* Adjust font size for large mobile screens */
   }
 
-  /* Make sure the layout remains consistent */
   .calculator-results {
     flex-direction: row; /* Keep the calculator and results side by side */
-    gap: 30px; /* Increase gap between the sections */
+    gap: 30px; /* Increase gap between sections */
   }
 
   .calculator, .results {
-    min-width: 500px; /* Ensure a good width on larger screens */
+    min-width: 500px; /* Ensure good width for content */
+    max-width: 600px; /* Allow sections to grow bigger */
     flex: 1;
   }
 
   .language-toggle-buttons {
-    gap: 20px; /* Ensure good space between language buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 15px;
+    padding-right: 20px; /* Ensure spacing from the right edge */
+  }
+
+  .language-toggle-buttons button {
+    padding: 12px 25px; /* Adjust button padding */
+  }
+
+  h1 {
+    font-size: 3rem; /* Increase font size for headers on large screens */
+  }
+
+  .calculator h2, .results h2 {
+    font-size: 2rem; /* Increase title size for better readability */
+  }
+
+  .form-group label {
+    font-size: 1.2rem; /* Increase label font size */
+  }
+
+  input, button {
+    font-size: 1.1rem; /* Increase input and button font size */
   }
 }
 
+/* Mobile Responsiveness for smaller screens */
+@media screen and (max-width: 1024px) { 
+  /* Target tablets and smaller devices */
+  body {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  /* Target large phones and phablets */
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 414px) { 
+  /* Target larger phones (e.g., iPhone 6/7/8 Plus) */
+  body {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 375px) { 
+  /* Target small phones (e.g., iPhone 6, iPhone 7, smaller Android phones) */
+  body {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) { 
+  /* Target very small phones */
+  body {
+    font-size: 11px;
+  }
+}
