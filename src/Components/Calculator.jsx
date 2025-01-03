@@ -1,11 +1,11 @@
 import React from "react";
 
-const Calculator = ({ inputs, onInputChange }) => {
+const Calculator = ({ inputs, onInputChange, language }) => {
   return (
     <div className="calculator">
-      <h2>Solar Calculator</h2>
+      <h2>{language === "en" ? "Solar Calculator" : "सोलर कैलकुलेटर"}</h2>
       <div className="form-group">
-        <label>Monthly Bill Amount (₹):</label>
+        <label>{language === "en" ? "Monthly Bill Amount (₹):" : "मासिक बिल राशि (₹):"}</label>
         <input
           type="number"
           value={inputs.billAmount}
@@ -13,7 +13,7 @@ const Calculator = ({ inputs, onInputChange }) => {
         />
       </div>
       <div className="form-group">
-        <label>Solar Capacity to Install (kW):</label>
+        <label>{language === "en" ? "Solar Capacity to Install (kW):" : "सोलर क्षमता (kW) इंस्टॉल करें:"}</label>
         <input
           type="number"
           value={inputs.solarCapacity}
@@ -21,7 +21,7 @@ const Calculator = ({ inputs, onInputChange }) => {
         />
       </div>
       <div className="form-group">
-        <label>Required Area (sq. ft.):</label>
+        <label>{language === "en" ? "Required Area (sq. ft.):" : "आवश्यक क्षेत्र (वर्ग फीट):"}</label>
         <input
           type="number"
           value={inputs.area}
