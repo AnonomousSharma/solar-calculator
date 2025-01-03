@@ -13,15 +13,15 @@ const App = () => {
   });
   const [results, setResults] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [language, setLanguage] = useState("en");
 
   const handleInputChange = (field, value) => {
     let newInputs = { ...inputs, [field]: value };
 
     if (field === "billAmount") {
-      // Calculate Solar Capacity and Area based on Bill Amount
       if (value) {
-        const solarCapacity = (value / 600).toFixed(2); // Example: ₹600 = 1 kW
-        const area = (solarCapacity * 64).toFixed(2); // 64 sq. ft per kW
+        const solarCapacity = Math.round(value / 1000);
+        const area = Math.round(solarCapacity * 64);
         newInputs.solarCapacity = solarCapacity;
         newInputs.area = area;
       } else {
@@ -29,11 +29,9 @@ const App = () => {
         newInputs.area = "";
       }
     } else if (field === "solarCapacity") {
-      // If Solar Capacity is changed directly, only update the area
-      const area = (value * 64).toFixed(2); // 64 sq. ft per kW
+      const area = Math.round(value * 64);
       newInputs.area = area;
     } else if (field === "area") {
-      // If Area is changed, we don't change solarCapacity and billAmount directly
       newInputs.area = value;
     }
 
@@ -43,9 +41,9 @@ const App = () => {
       setResults({
         solarCapacity: newInputs.solarCapacity,
         area: newInputs.area,
-        monthlyProduction: (newInputs.solarCapacity * 150).toFixed(2), // Assumed monthly production per kW
-        offGridCost: (newInputs.solarCapacity * 50000).toFixed(0), // ₹50,000 per kW
-        onGridCost: (newInputs.solarCapacity * 45000).toFixed(0), // ₹45,000 per kW
+        monthlyProduction: Math.round(newInputs.solarCapacity * 150),
+        offGridCost: Math.round(newInputs.solarCapacity * 55000),
+        onGridCost: Math.round(newInputs.solarCapacity * 50000),
       });
     } else {
       setResults(null);
@@ -56,17 +54,31 @@ const App = () => {
     setModalOpen(!isModalOpen);
   };
 
+  const switchToEnglish = () => {
+    setLanguage("en");
+  };
+
+  const switchToHindi = () => {
+    setLanguage("hi");
+  };
+
   return (
     <div className="app">
-      <h1>Solar Panel Installation Calculator</h1>
+      <h1>{language === "en" ? "Solar Panel Installation Calculator" : "सोलर पैनल इंस्टॉलेशन कैलकुलेटर"}</h1>
+      <div className="language-toggle-buttons">
+        <button onClick={switchToEnglish}>{language === "en" ? "Already in English" : "Switch to English"}</button>
+        <button onClick={switchToHindi}>{language === "hi" ? "Already in हिंदी" : "Switch to हिंदी"}</button>
+      </div>
+      
+      
       <div className="calculator-results">
-        <Calculator inputs={inputs} onInputChange={handleInputChange} />
-        <Results results={results} onOpenDisclaimer={toggleModal} />
+        <Calculator inputs={inputs} onInputChange={handleInputChange} language={language} />
+        <Results results={results} onOpenDisclaimer={toggleModal} language={language} />
       </div>
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
       </div>
-      <DisclaimerModal isOpen={isModalOpen} onClose={toggleModal} />
+      <DisclaimerModal isOpen={isModalOpen} onClose={toggleModal} language={language} />
     </div>
   );
 };
