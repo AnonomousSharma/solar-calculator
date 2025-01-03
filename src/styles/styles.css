@@ -68,7 +68,6 @@ input {
 input:focus {
   border-color: #007BFF;
 }
-
 button {
   background-color: #007BFF;
   color: white;
@@ -82,6 +81,35 @@ button {
 }
 
 button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.language-toggle-buttons {
+  display: flex; /* Aligns buttons horizontally */
+  justify-content: flex-start; /* Align buttons to the left, you can change to 'center' if you want them centered */
+  gap: 10px; /* Adds space between the buttons */
+  margin-bottom: 20px; /* Adds some space below the buttons */
+ 
+}
+
+.language-toggle-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.language-toggle-buttons button:hover {
   background-color: #0056b3;
 }
 
@@ -131,59 +159,38 @@ body {
 body {
   font-size: 16px;
 }
-/* Small mobile screens around 300px to 400px */
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 1024px) { 
+  /* Target tablets and smaller devices */
   body {
-    font-size: 12px; /* Smaller font for better readability on tiny screens */
+    font-size: 15px;
   }
+}
 
-  .app {
-    padding: 15px;
-    max-width: 100%;
+@media screen and (max-width: 768px) { 
+  /* Target large phones and phablets */
+  body {
+    font-size: 14px;
   }
+}
 
-  h1 {
-    font-size: 1.6rem;  /* Smaller header for small screens */
-    margin-bottom: 20px;
+@media screen and (max-width: 414px) { 
+  /* Target larger phones (e.g., iPhone 6/7/8 Plus) */
+  body {
+    font-size: 13px;
   }
+}
 
-  /* Stack elements vertically and adjust padding */
-  .calculator-results {
-    flex-direction: column; /* Stack both calculator and result boxes */
-    gap: 15px;
+@media screen and (max-width: 375px) { 
+  /* Target small phones (e.g., iPhone 6, iPhone 7, smaller Android phones) */
+  body {
+    font-size: 12px;
   }
+}
 
-  .calculator, .results {
-    padding: 15px;
-    min-width: 100%;  /* Ensures both boxes fit fully on small screens */
-    max-width: 100%;
-  }
-
-  /* Adjust form fields to fit */
-  .form-group label {
-    font-size: 0.9rem;
-  }
-
-  input, button {
-    width: 100%;  /* Ensure the buttons and inputs stretch to the screen width */
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  button {
-    margin-top: 10px;
-    font-size: 1.1rem;
-  }
-
-  /* Adjust the modal size for smaller screens */
-  .modal {
-    width: 90%;
-    max-width: 90%; 
-  }
-
-  /* Adjust list items in result box */
-  .results li {
-    font-size: 0.9rem;
-    padding-left: 0;
+@media screen and (max-width: 320px) { 
+  /* Target very small phones */
+  body {
+    font-size: 11px;
   }
 }
